@@ -1,0 +1,425 @@
+/* ============================================
+   CRISTIAN & LUZ â€” Paleta "Esencia de otoÃ±o"
+   ============================================ */
+
+:root {
+  --rust: #B9552F;
+  --rust-dark: #8C3E22;
+  --terracotta: #D98B62;
+  --nude: #E4C6AC;
+  --beige: #EDE0C8;
+  --sage: #8D9B78;
+  --sage-dark: #5F6C4E;
+  --ivory: #FBF7EF;
+  --ink: #4A3226;
+
+  --font-display: 'Alex Brush', cursive;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Jost', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--beige);
+  color: var(--ink);
+  font-family: var(--font-serif);
+}
+
+p { margin: 0; }
+
+/* -------- Layout general -------- */
+
+.contenedor-principal {
+  max-width: 1180px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.panel-izquierdo {
+  background: var(--ivory);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  border-right: 1px dashed var(--sage);
+}
+
+.deslizable {
+  background: var(--ivory);
+}
+
+/* -------- Sendero decorativo (elemento distintivo) --------
+   Evoca el "sendero" que se recorre hasta la cumbre: una lÃ­nea
+   punteada que atraviesa cada secciÃ³n, como un mapa de ruta. */
+
+.seccion {
+  position: relative;
+  padding: 3.25rem 2rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: .55rem;
+}
+
+.seccionFin {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: .30rem;
+  background-color: rgba(240, 248, 255, 0);
+}
+
+.seccion::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 2rem;
+  border-left: 1px dashed var(--sage);
+  transform: translateX(-50%);
+}
+
+.seccion::after {
+  content: "";
+  position: absolute;
+  top: 1.4rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 7px;
+  height: 7px;
+  background: var(--rust);
+  border-radius: 1px;
+}
+
+.seccion:nth-of-type(odd)   { background: var(--ivory); }
+.seccion:nth-of-type(even)  { background: #F5EEDF; }
+
+/* -------- Portada / nombres -------- */
+
+.cursivaPortada {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  color: var(--rust);
+  line-height: 1;
+  margin: 0;
+}
+
+.imprentaPortada {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--ink);
+  letter-spacing: .015em;
+}
+
+.seccion-portada {
+  padding: 0;
+}
+
+.seccion-portada::before,
+.seccion-portada::after {
+  display: none;
+}
+
+.fecha-mobile {
+  font-family: var(--font-sans);
+  letter-spacing: .25em;
+  color: var(--rust);
+  font-size: .95rem;
+  text-transform: uppercase;
+}
+
+.seccion-frase { background: var(--ivory); }
+
+/* -------- Video de portada -------- */
+
+.media-portada {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--ivory);
+}
+
+.media-portada-mobile {
+  height: 78vh;
+  min-height: 460px;
+}
+
+.video-portada,
+.imagen-portada {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.imagen-portada {
+  opacity: 0; /* aparece por JS, fundiendo desde el color claro de fondo */
+}
+
+.video-portada.oculto {
+  opacity: 0;
+}
+
+.imagen-portada.visible {
+  opacity: 1;
+}
+
+/* velo suave para que el texto se lea sobre el video/imagen */
+.media-portada::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(74,50,38,.15) 0%, rgba(74,50,38,.45) 100%);
+  pointer-events: none;
+}
+
+.overlay-portada {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.overlay-portada .cursivaPortada,
+.overlay-portada .fecha-mobile {
+  color: var(--ivory);
+}
+
+.overlay-portada .imprentaPortada {
+  color: var(--ivory);
+}
+
+.overlay-portada .fecha-mobile {
+  margin-top: 1.4rem;
+}
+
+/* -------- Bloque fecha (panel izquierdo desktop) -------- */
+
+.bloque-fecha p {
+  font-family: var(--font-sans);
+  letter-spacing: .3em;
+  font-size: 1.1rem;
+  color: var(--rust);
+  padding: .9rem 0;
+  text-transform: uppercase;
+}
+
+/* -------- ConfirmaciÃ³n de asistencia -------- */
+
+.bloque-confirmacion,
+.seccion-confirmacion {
+  background: var(--sage);
+  padding: 1.8rem 1rem 2.2rem;
+  gap: .9rem;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: .72rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--sage-dark);
+}
+
+.bloque-confirmacion .eyebrow,
+.seccion-confirmacion .eyebrow {
+  color: var(--ivory);
+}
+
+.btn-confirmar {
+  font-family: var(--font-sans);
+  font-size: .85rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background: var(--ivory);
+  color: var(--sage-dark);
+  border: 1px solid var(--ivory);
+  border-radius: 999px;
+  padding: .55rem 1.6rem;
+  transition: background .2s ease, color .2s ease;
+}
+
+.btn-confirmar:hover {
+  background: transparent;
+  color: var(--ivory);
+}
+
+/* -------- Contador -------- */
+
+.cuentaAtras {
+  gap: 1.1rem;
+  margin-top: .4rem;
+}
+
+.grupo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 58px;
+}
+
+.grande {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 2.1rem;
+  color: var(--rust);
+  line-height: 1;
+}
+
+.chico {
+  font-family: var(--font-sans);
+  font-size: .68rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-top: .3rem;
+}
+
+/* -------- TÃ­tulos y texto de secciÃ³n -------- */
+
+.titulo-seccion {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 1.7rem;
+  color: var(--rust-dark);
+  margin: 0;
+}
+
+.texto-secundario {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: .95rem;
+  color: var(--ink);
+  max-width: 340px;
+  line-height: 1.55;
+}
+
+.frase-dorada {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--rust);
+}
+
+/* -------- Paleta swatches (dress code) -------- */
+
+.paleta-swatches {
+  gap: .5rem;
+  margin-top: .3rem;
+}
+
+.swatch {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--sw);
+  border: 2px solid var(--ivory);
+  box-shadow: 0 0 0 1px rgba(74, 50, 38, .15);
+}
+
+/* -------- Botones outline / alias -------- */
+
+.btn-outline-mapa {
+  font-family: var(--font-sans);
+  font-size: .82rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--rust);
+  background: transparent;
+  border: 1px solid var(--rust);
+  border-radius: 999px;
+  padding: .55rem 1.5rem;
+  transition: background .2s ease, color .2s ease;
+}
+
+.btn-outline-mapa:hover {
+  background: var(--rust);
+  color: var(--ivory);
+}
+
+.btn-alias {
+  font-family: var(--font-sans);
+  font-size: .82rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  background: var(--rust);
+  border: 1px solid var(--rust);
+  border-radius: 999px;
+  padding: .6rem 1.7rem;
+  margin-top: .3rem;
+  transition: opacity .2s ease;
+}
+
+.btn-alias:hover {
+  opacity: .85;
+  color: var(--ivory);
+}
+
+.precio {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--rust-dark);
+}
+
+.precio span {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: .72rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-top: .2rem;
+}
+
+/* -------- Modal CVU -------- */
+
+.modal-content {
+  background: var(--ivory);
+  border: none;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+}
+
+.modal-title {
+  font-family: var(--font-serif);
+  color: var(--rust-dark);
+}
+
+.modal-body strong {
+  color: var(--sage-dark);
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.btn-success {
+  background: var(--sage-dark);
+  border-color: var(--sage-dark);
+}
+
+.btn-success:hover {
+  background: var(--rust);
+  border-color: var(--rust);
+}
+
+/* -------- Responsive -------- */
+
+@media (max-width: 991.98px) {
+  .seccion { padding: 2.75rem 1.5rem 3rem; }
+}

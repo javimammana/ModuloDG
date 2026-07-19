@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&family=Alex+Brush&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/luzycristian.css">
+    <title>Cristian & Luz</title>
+</head>
+<body>
+    <div class="contenedor-principal container col-12 col-lg-11 d-lg-flex">
+
+        <div class="panel-izquierdo col-12 col-lg-7 d-none d-lg-flex flex-column">
+
+            <div class="media-portada">
+                <video class="video-portada" autoplay muted playsinline preload="auto">
+                    <source src="../media/luzycristian/portada.mp4" type="video/mp4">
+                </video>
+                <img class="imagen-portada" src="../media/luzycristian/portada-final.jpg" alt="Cristian y Luz">
+
+                <div class="overlay-portada flex-grow-1 d-flex flex-column col-12 pt-1 align-items-center justify-content-between">
+                    <div class="col-8 d-flex flex-column">
+                        <p class="cursivaPortada align-self-start">Cristian</p>
+                        <p class="cursivaPortada align-self-end">&amp; Luz</p>
+                    </div>
+                    <div class="col-10">
+                        <p class="imprentaPortada text-center">“Recorrimos senderos, alcanzamos cumbres y vivimos grandes aventuras. Ahora elegimos emprender el viaje más importante: el resto de nuestra vida juntos”</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column align-items-center bloque-fecha">
+                <div class="col-10 d-flex justify-content-center">
+                    <p>03 · 04 · 2027</p>
+                </div>
+            </div>
+            <div class="d-flex flex-column align-items-center bloque-confirmacion">
+                <p class="eyebrow">Confirmación de asistencia</p>
+                <div class="d-flex gap-3">
+                    <a class="btn btn-confirmar" href="https://wa.me/5493512625236?text=Hola%20Cristian%2C%20yo%20voy%20a%20tu%20casamiento..." target="_blank" rel="noopener">Novio</a>
+                    <a class="btn btn-confirmar" href="https://wa.me/5493515554576?text=Hola%20Luz%2C%20yo%20voy%20a%20tu%20casamiento..." target="_blank" rel="noopener">Novia</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="deslizable col-lg-5 col-12 d-flex flex-column">
+
+            <section class="d-lg-none seccion seccion-portada col-12">
+                <div class="media-portada media-portada-mobile col-12">
+                    <video class="video-portada" autoplay muted playsinline preload="auto">
+                        <source src="../media/luzycristian/portada.mp4" type="video/mp4">
+                    </video>
+                    <img class="imagen-portada" src="../media/luzycristian/portada-final.jpg" alt="Cristian y Luz">
+
+                    <div class="overlay-portada">
+                        <div class="col-6 d-flex flex-column">
+                            <p class="cursivaPortada align-self-start">Cristian</p>
+                            <p class="cursivaPortada align-self-end">&amp; Luz</p>
+                        </div>
+                        <p class="fecha-mobile">03 · 04 · 2027</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="d-lg-none seccion seccion-frase">
+                <p class="imprentaPortada text-center">“Recorrimos senderos, alcanzamos cumbres y vivimos grandes aventuras. Ahora elegimos emprender el viaje más importante: el resto de nuestra vida juntos”</p>
+            </section>
+
+            <section class="seccion seccion-contador">
+                <p class="eyebrow">Faltan</p>
+                <div class="cuentaAtras d-flex justify-content-center" id="cuentaAtras">
+                    <div class="grupo align-content-center" id="grupoDias">
+                        <p class="grande" id="dias">00</p>
+                        <p class="chico">Días</p>
+                    </div>
+                    <div class="grupo align-content-center" id="grupoHoras">
+                        <p class="grande" id="horas">00</p>
+                        <p class="chico">Hs</p>
+                    </div>
+                    <div class="grupo align-content-center" id="grupoMinutos">
+                        <p class="grande" id="minutos">00</p>
+                        <p class="chico">Min</p>
+                    </div>
+                    <div class="grupo align-content-center">
+                        <p class="grande" id="segundos">00</p>
+                        <p class="chico">Seg</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="seccion seccion-salon">
+                <p class="eyebrow">Ceremonia religiosa</p>
+                <p class="eyebrow">11:00hs</p>
+                <h3 class="titulo-seccion">Parroquia Ntra, Sra. de Luján. </h3>
+                <p class="texto-secundario">Av. Pres. Arturo Illia Sur 98-270, X5101 Col. Tirolesa, Córdoba</p>
+                <div class="d-flex justify-content-center" id="ubicacion">
+                    <a href="https://maps.app.goo.gl/F4EU5E3hbDQtZ3er5" target="_blank" class="btn btn-outline-mapa">Ver mapa</a>
+                </div>
+            </section>
+
+            <section class="seccion seccion-salon">
+                <p class="eyebrow">El lugar</p>
+                <p class="eyebrow">12:30hs</p>
+                <h3 class="titulo-seccion">La Catalá</h3>
+                <p class="texto-secundario">Augusto López, Ciarimboli, Córdoba</p>
+                <div class="d-flex justify-content-center" id="ubicacion">
+                    <a href="https://www.google.com/maps/search/?api=1&query=La+Catal%C3%A1+Ciarimboli+Cordoba" target="_blank" class="btn btn-outline-mapa">Ver mapa</a>
+                </div>
+            </section>
+
+            <section class="seccion seccion-salon">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img src="../media/luzycristian/foto01.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="../media/luzycristian/foto02.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="../media/luzycristian/foto03.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="../media/luzycristian/foto04.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="../media/luzycristian/foto05.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+            </section>
+
+            <section class="seccion seccion-dresscode">
+                <p class="eyebrow">Dress code</p>
+                <h3 class="titulo-seccion">Semi formal · Cóctel</h3>
+                <p class="texto-secundario">Una orientación para tu vestuario</p>
+                <p class="frase-dorada">“Esencia de otoño”</p>
+                <p class="texto-secundario text-center">Los invitamos a acompañarnos con una paleta inspirada en la tierra, el bosque y la calidez de la naturaleza: terracota, verdes salvia, beige, marfil, arena, marrones y tonos cálidos.</p>
+                <div class="paleta-swatches d-flex justify-content-center">
+                    <span class="swatch" style="--sw:var(--rust)"></span>
+                    <span class="swatch" style="--sw:var(--terracotta)"></span>
+                    <span class="swatch" style="--sw:var(--sage)"></span>
+                    <span class="swatch" style="--sw:var(--nude)"></span>
+                    <span class="swatch" style="--sw:var(--beige)"></span>
+                </div>
+            </section>
+
+            <section class="seccion seccion-regalo">
+                <p class="eyebrow">Tarjeta</p>
+                <h3 class="titulo-seccion">Nos encantaría celebrar este gran día con ustedes</h3>
+                <p class="texto-secundario">Valor de la tarjeta</p>
+                <p class="precio">$150.000 <span>hasta el 15/09/26</span></p>
+                <p class="texto-secundario text-center">Estimamos un incremento del 5% mensual, consultar con los novios.</p>
+                <p class="texto-secundario text-center">Para reservar su lugar, les pedimos confirmar su asistencia mediante el pago de la tarjeta antes del 15/02/27.</p>
+                <button class="btn btn-outline-mapa"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalCVU">
+                    Ver alias
+                </button>
+            </section>
+
+            <div class="d-lg-none d-flex flex-column align-items-center bloque-confirmacion">
+                <p class="eyebrow">Confirmación de asistencia</p>
+                <div class="d-flex gap-3">
+                    <a class="btn btn-confirmar" href="https://wa.me/5493512625236?text=Hola%20Cristian%2C%20yo%20voy%20a%20tu%20casamiento..." target="_blank" rel="noopener">Novio</a>
+                    <a class="btn btn-confirmar" href="https://wa.me/5493515554576?text=Hola%20Luz%2C%20yo%20voy%20a%20tu%20casamiento..." target="_blank" rel="noopener">Novia</a>
+                </div>
+            </div>
+
+            <section class="seccion seccion-musica">
+                <p class="eyebrow">Música</p>
+                <h3 class="titulo-seccion">Toda aventura tiene su banda sonora</h3>
+                <p class="texto-secundario">¿Cuál es la canción que no puede faltar en nuestra fiesta?</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqfkWjfVaudDXWf3jXjduF8DOr8ht94AY4zfOH3xlT5zUgjA/viewform" target="_blank" class="btn btn-outline-mapa">Sugerir canción</a>
+            </section>
+
+            <section class="seccion seccion-fotos">
+                <p class="eyebrow">Fotos</p>
+                <h3 class="titulo-seccion">Compartimos este día junto a vos</h3>
+                <p class="texto-secundario">Comparte tus fotos y videos de este hermoso día.</p>
+                <a href="https://photos.google.com/share/AF1QipO9y3AsFvGE0RKgXgvQPsQuXpu8P3J0oW3G7lJMUZe9aME4gho3hbgs3NThMmbl-A?key=WUZlYXJGeXFFX25FNjRmOC1ObVNBZGRwb0ozRFNR" target="_blank" class="btn btn-outline-mapa">Compartir</a>
+            </section>
+
+            <section class="seccionFin p-2">
+                <p class="eyebrow">Diseño por <a href="../index.html" class="eyebrow">ModuloDG</a></p>
+                <a class="eyebrow">instagram</a>
+            </section>
+
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="modalCVU" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Datos para la transferencia</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>CVU:</strong><br>1430001713021433000012</p>
+                    <p><strong>Alias:</strong><br><span id="cvu">boda.luz.cristian</span></p>
+                    <p><strong>Titular:</strong><br>Cristian Eduardo Sánchez Brandán</p>
+                    <p><strong>CUIL:</strong><br>20-34637687-3</p>
+                    <p><strong>N° de cuenta:</strong><br>1302143300001</p>
+                    <div class="d-grid mt-4">
+                        <button class="btn btn-success" onclick="copiarCVU()">Copiar alias</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+<script src="../js/luzycristian.js"></script>
+</body>
+</html>
