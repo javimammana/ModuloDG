@@ -121,13 +121,25 @@
   }
 
   /* ---------- HERO ---------- */
-  .hero{
+  /* .hero{
     padding:80px 0 66px;
     display:grid;
     grid-template-columns:1.05fr 0.95fr;
     gap:48px;
     align-items:center;
-  }
+  } */
+
+  .hero{
+  padding:80px 0 66px;
+  /* display:grid, grid-template-columns, gap y align-items se van de acá */
+}
+
+  .hero .wrap{
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:48px;
+  align-items:center;
+}
   .eyebrow{
     display:inline-flex;
     align-items:center;
