@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cumple de Cyn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream-1: #fbf7ec;
+    --cream-2: #f3ecd8;
+    --cream-3: #ece2c6;
+    --ink: #3a3226;
+    --ink-soft: #6b6150;
+    --gold-deep: #a9832f;
+    --gold: #c9a24a;
+    --gold-bright: #e8c877;
+    --silver-deep: #8f909a;
+    --silver: #b7b8c1;
+    --silver-bright: #dfe0e6;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  /* La página está pensada solo para vista mobile: en pantallas más
+     anchas se centra con un marco angosto tipo celular. */
+  body{
+    background: #241d12;
+    display: flex;
+    justify-content: center;
+  }
+
+  .app{
+    width: 100%;
+    max-width: 460px;
+    min-height: 100vh;
+    position: relative;
+    background:
+      radial-gradient(ellipse at 15% 0%, rgba(201,162,74,0.22), transparent 55%),
+      radial-gradient(ellipse at 88% 20%, rgba(183,184,193,0.24), transparent 50%),
+      radial-gradient(ellipse at 30% 90%, rgba(201,162,74,0.16), transparent 55%),
+      linear-gradient(180deg, var(--cream-1), var(--cream-2) 50%, var(--cream-1));
+    color: var(--ink);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    padding-bottom: 92px;
+    box-shadow: 0 0 60px rgba(0,0,0,0.35);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  .seccionFin {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sparkle-field{ position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .sparkle{
+    position: absolute; width: 3.5px; height: 3.5px; border-radius: 50%;
+    background: var(--gold-bright);
+    box-shadow: 0 0 10px 2.5px rgba(232,200,119,0.95);
+    animation: twinkle 3.2s ease-in-out infinite;
+    opacity: 0;
+  }
+  .sparkle.silver{ background: var(--silver-bright); box-shadow: 0 0 10px 2.5px rgba(223,224,230,0.95); }
+  .sparkle.big{ width: 5px; height: 5px; box-shadow: 0 0 14px 4px rgba(232,200,119,0.9); }
+  @keyframes twinkle{
+    0%, 100%{ opacity: 0; transform: scale(0.4); }
+    50%{ opacity: 1; transform: scale(1.25); }
+  }
+
+  section{ position: relative; z-index: 1; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height: 100svh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 48px 24px 64px;
+    position: relative;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; top: 2%; left: 50%; transform: translateX(-50%);
+    width: 380px; height: 420px;
+    background:
+      radial-gradient(circle at 50% 30%, rgba(232,200,119,0.38), transparent 55%),
+      radial-gradient(circle at 50% 60%, rgba(201,162,74,0.28), transparent 62%);
+    filter: blur(8px);
+    animation: glow-pulse 4.5s ease-in-out infinite;
+    z-index: -1;
+  }
+  @keyframes glow-pulse{
+    0%, 100%{ opacity: 0.75; transform: translateX(-50%) scale(1); }
+    50%{ opacity: 1; transform: translateX(-50%) scale(1.08); }
+  }
+
+  .crown-wrap{ position: relative; width: 150px; height: 150px; margin-bottom: 4px; }
+  .crown-wrap svg{ width: 100%; height: 100%; overflow: visible; }
+
+  .crown-shine{
+    position: absolute; inset: -20%;
+    background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.85) 50%, transparent 60%);
+    mix-blend-mode: overlay;
+    animation: sweep 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes sweep{
+    0%{ transform: translateX(-120%) rotate(8deg); opacity: 0; }
+    35%{ opacity: 1; }
+    55%{ transform: translateX(120%) rotate(8deg); opacity: 0; }
+    100%{ transform: translateX(120%) rotate(8deg); opacity: 0; }
+  }
+
+  .eyebrow{
+    font-size: 12.5px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 10px;
+  }
+
+  .hero h1{
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: clamp(64px, 22vw, 108px);
+    line-height: 1.25;
+    padding: 0.1em 0.08em 0.15em;
+    margin: 0 0 2px;
+    overflow: visible;
+    background: linear-gradient(100deg, var(--gold-deep) 0%, var(--gold-bright) 28%, var(--silver-deep) 50%, var(--gold-bright) 72%, var(--gold-deep) 100%);
+    background-size: 240% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer-text 6s linear infinite;
+  }
+  @keyframes shimmer-text{
+    0%{ background-position: 0% 50%; }
+    100%{ background-position: 240% 50%; }
+  }
+
+  .hero .sub{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(17px, 3.8vw, 22px);
+    color: var(--ink);
+    margin-top: 2px;
+  }
+
+  .divider{ display:flex; align-items:center; justify-content:center; margin: 26px auto; width: min(240px, 70%); }
+  .divider svg{ width: 100%; height: auto; }
+
+  .hero .invite-line{
+    max-width: 420px;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    line-height: 1.9;
+    color: var(--ink-soft);
+  }
+
+  .scroll-cue{
+    margin-top: 40px; width: 22px; height: 34px;
+    border: 1px solid var(--gold); border-radius: 14px;
+    position: relative; opacity: 0.7;
+  }
+  .scroll-cue::before{
+    content:""; position:absolute; top:6px; left:50%; transform: translateX(-50%);
+    width:3px; height:6px; border-radius: 2px; background: var(--gold-deep);
+    animation: scrolldown 1.8s ease-in-out infinite;
+  }
+  @keyframes scrolldown{
+    0%{ opacity:0; top:6px; } 40%{ opacity:1; } 100%{ opacity:0; top:18px; }
+  }
+
+  /* ---------- Detalles ---------- */
+  .details{ padding: 30px 20px 56px; max-width: 760px; margin: 0 auto; }
+
+  .details-title{
+    text-align:center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-weight: 600;
+    font-size: clamp(26px, 5.5vw, 34px);
+    color: var(--gold-deep);
+    margin-bottom: 40px;
+  }
+
+  .card-grid{ display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
+
+  .card{
+    background: linear-gradient(160deg, rgba(255,255,255,0.7), rgba(255,255,255,0.35));
+    border: 1px solid rgba(169,131,47,0.3);
+    border-radius: 6px;
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+    opacity: 0; transform: translateY(22px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    box-shadow: 0 6px 18px rgba(169,131,47,0.08);
+  }
+  .card.in-view{ opacity: 1; transform: translateY(0); }
+
+  .card::before, .card::after{ content:""; position:absolute; width:10px; height:10px; border: 1px solid var(--gold); opacity: 0.6; }
+  .card::before{ top:8px; left:8px; border-right:none; border-bottom:none; }
+  .card::after{ bottom:8px; right:8px; border-left:none; border-top:none; }
+
+  .card .icon{ width: 32px; height: 32px; margin: 0 auto 14px; color: var(--gold-deep); }
+  .card .icon svg{ width:100%; height:100%; }
+
+  .card .label{ font-size: 10.5px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
+
+  .card .value{ font-family: 'Cormorant Garamond', serif; font-size: 21px; color: var(--ink); line-height: 1.4; }
+  .card .value.small{ font-size: 15.5px; }
+
+  /* ---------- RSVP note ---------- */
+  .rsvp{
+    text-align: center; padding: 14px 24px 64px; max-width: 460px; margin: 0 auto;
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .rsvp.in-view{ opacity:1; transform: translateY(0); }
+
+  .rsvp p{ font-size: 13.5px; color: var(--ink-soft); line-height: 1.9; }
+  .rsvp .date-strong{ color: var(--gold-deep); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 30px; }
+
+  footer.credit{ text-align: center; font-size: 20px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--silver-deep); padding-bottom: 20px; }
+
+  /* ---------- Barra fija inferior ---------- */
+  .bottom-bar{
+    position: fixed; left:50%; transform: translateX(-50%); bottom:0; z-index: 50;
+    width: 100%; max-width: 460px;
+    display:flex;
+    background: linear-gradient(180deg, rgba(251,247,236,0.3), rgba(251,247,236,0.97) 30%);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(169,131,47,0.3);
+    padding: 12px max(12px, env(safe-area-inset-left)) calc(12px + env(safe-area-inset-bottom));
+    gap: 10px;
+  }
+
+  .bar-btn{
+    flex: 1; display:flex; align-items:center; justify-content:center; gap:8px;
+    padding: 14px 10px; border-radius: 4px;
+    text-decoration: none;
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
+    position: relative; overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .bar-btn:active{ transform: scale(0.97); }
+  .bar-btn svg{ width: 17px; height: 17px; flex-shrink: 0; }
+
+  .bar-btn.primary{
+    background: linear-gradient(100deg, var(--gold-deep), var(--gold-bright) 45%, var(--gold) 70%, var(--gold-deep));
+    background-size: 220% 100%;
+    color: #3a2c0d;
+    box-shadow: 0 4px 16px rgba(169,131,47,0.25);
+    animation: btn-shimmer 5s linear infinite;
+  }
+  @keyframes btn-shimmer{ 0%{ background-position: 0% 0; } 100%{ background-position: 220% 0; } }
+
+  .bar-btn.secondary{
+    background: rgba(255,255,255,0.5);
+    color: var(--ink);
+    border: 1px solid rgba(143,144,154,0.5);
+  }
+  .bar-btn.secondary:hover{ background: rgba(255,255,255,0.85); }
+
+
+</style>
+</head>
+<body>
+<div class="app">
+
+<div class="sparkle-field" id="sparkleField"></div>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="crown-wrap">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="crownGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#a9832f"/>
+          <stop offset="35%" stop-color="#e8c877"/>
+          <stop offset="55%" stop-color="#b7b8c1"/>
+          <stop offset="80%" stop-color="#c9a24a"/>
+          <stop offset="100%" stop-color="#a9832f"/>
+        </linearGradient>
+      </defs>
+      <path d="M40 140 L40 165 Q100 178 160 165 L160 140 Z" fill="none" stroke="url(#crownGrad)" stroke-width="2.2"/>
+      <line x1="46" y1="150" x2="154" y2="150" stroke="url(#crownGrad)" stroke-width="1"/>
+      <path d="M40 140 L30 78 L58 108 L74 55 L100 100 L126 55 L142 108 L170 78 L160 140 Z"
+            fill="none" stroke="url(#crownGrad)" stroke-width="2.4" stroke-linejoin="round"/>
+      <circle cx="30" cy="78" r="5.5" fill="url(#crownGrad)"/>
+      <circle cx="74" cy="55" r="5.5" fill="url(#crownGrad)"/>
+      <circle cx="100" cy="42" r="7" fill="url(#crownGrad)"/>
+      <circle cx="126" cy="55" r="5.5" fill="url(#crownGrad)"/>
+      <circle cx="170" cy="78" r="5.5" fill="url(#crownGrad)"/>
+      <circle cx="100" cy="152" r="4" fill="url(#crownGrad)"/>
+      <path d="M40 165 Q20 160 22 140" fill="none" stroke="url(#crownGrad)" stroke-width="1.2" opacity="0.7"/>
+      <path d="M160 165 Q180 160 178 140" fill="none" stroke="url(#crownGrad)" stroke-width="1.2" opacity="0.7"/>
+    </svg>
+    <div class="crown-shine"></div>
+  </div>
+
+  <p class="eyebrow">Se viene el cumple de</p>
+  <h1>Cyn</h1>
+  <p class="sub">¡y están todos invitados! ✨</p>
+
+  <div class="divider">
+    <svg viewBox="0 0 260 24" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="divGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#a9832f" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#c9a24a"/>
+          <stop offset="100%" stop-color="#a9832f" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <line x1="0" y1="12" x2="105" y2="12" stroke="url(#divGrad)" stroke-width="1"/>
+      <line x1="155" y1="12" x2="260" y2="12" stroke="url(#divGrad)" stroke-width="1"/>
+      <path d="M130 3 L138 12 L130 21 L122 12 Z" fill="none" stroke="#c9a24a" stroke-width="1.2"/>
+      <circle cx="130" cy="12" r="2.4" fill="#c9a24a"/>
+    </svg>
+  </div>
+
+  <p class="invite-line">Domingo 06 de septiembre, de 16 a 20 hs<br>en Mariano Fragueiro 1701 B, Alta Córdoba.<br>Nada de etiqueta, vengan con toda la onda 🥂</p>
+
+  <div class="scroll-cue"></div>
+</section>
+
+<!-- ================= DETALLES ================= -->
+<section class="details">
+  <p class="details-title">Detalles del plan</p>
+  <div class="card-grid">
+
+    <div class="card">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+          <rect x="3" y="5" width="18" height="16" rx="1.5"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+          <line x1="8" y1="2.5" x2="8" y2="6.5"/>
+          <line x1="16" y1="2.5" x2="16" y2="6.5"/>
+          <circle cx="8.2" cy="14.2" r="1"/>
+          <circle cx="12" cy="14.2" r="1"/>
+          <circle cx="15.8" cy="14.2" r="1"/>
+          <circle cx="8.2" cy="17.6" r="1"/>
+          <circle cx="12" cy="17.6" r="1"/>
+        </svg>
+      </div>
+      <p class="label">Cuándo</p>
+      <p class="value">Domingo<br>06 / 09 / 2026</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+          <circle cx="12" cy="12" r="9"/>
+          <line x1="12" y1="7" x2="12" y2="12.5"/>
+          <line x1="12" y1="12.5" x2="15.5" y2="14.5"/>
+        </svg>
+      </div>
+      <p class="label">A qué hora</p>
+      <p class="value">16 a 20 hs</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+          <path d="M12 21s7-7.1 7-12.2A7 7 0 0 0 5 8.8C5 13.9 12 21 12 21Z"/>
+          <circle cx="12" cy="8.6" r="2.6"/>
+        </svg>
+      </div>
+      <p class="label">Dónde</p>
+      <p class="value small">Mariano Fragueiro 1701 B<br>Alta Córdoba</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= RSVP ================= -->
+<section class="rsvp">
+  <div class="divider">
+    <svg viewBox="0 0 260 24" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="12" x2="105" y2="12" stroke="url(#divGrad)" stroke-width="1"/>
+      <line x1="155" y1="12" x2="260" y2="12" stroke="url(#divGrad)" stroke-width="1"/>
+      <path d="M130 3 L138 12 L130 21 L122 12 Z" fill="none" stroke="#c9a24a" stroke-width="1.2"/>
+      <circle cx="130" cy="12" r="2.4" fill="#c9a24a"/>
+    </svg>
+  </div>
+  <p>Avisanos si venís antes del<br><span class="date-strong">01 de septiembre</span><br>así sabemos cuántos somos. Tocá el botón de abajo 👇</p>
+</section>
+
+<footer class="credit">Nos vemos ahí ✦</footer>
+
+<!-- ================= BARRA FIJA ================= -->
+<div class="bottom-bar">
+  <a class="bar-btn primary" id="whatsappBtn" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.75-.86-2-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.47-.87-.78-1.46-1.74-1.63-2.04-.17-.3-.02-.46.13-.6.13-.14.3-.34.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.9-2.2-.24-.58-.48-.5-.66-.5-.17-.01-.37-.01-.57-.01s-.52.07-.8.37c-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.4.24-.7.24-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z"/><path d="M12 2C6.48 2 2 6.36 2 11.75c0 1.94.58 3.75 1.58 5.27L2 22l5.19-1.53a10.1 10.1 0 0 0 4.81 1.22c5.52 0 10-4.36 10-9.94C22 6.36 17.52 2 12 2Zm0 18.13c-1.62 0-3.13-.46-4.4-1.26l-.32-.19-3.08.91.93-3-.21-.32a8.02 8.02 0 0 1-1.35-4.52c0-4.5 3.75-8.15 8.43-8.15 4.68 0 8.43 3.65 8.43 8.15 0 4.5-3.75 8.38-8.43 8.38Z"/></svg>
+    Confirmo que voy
+  </a>
+  <a class="bar-btn secondary" id="mapsBtn" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s7-7.1 7-12.2A7 7 0 0 0 5 8.8C5 13.9 12 21 12 21Z"/><circle cx="12" cy="8.6" r="2.6"/></svg>
+    Ver ubicación
+  </a>
+</div>
+            <section class="seccionFin p-2">
+                <p class="eyebrow">Diseño por <a href="../index.html" class="eyebrow">ModuloDG</a></p>
+                <div class="redes">
+                <!-- <a href="https://www.instagram.com/modulodg.cba" target="_blank" aria-label="Síguenos en Instagram"><span class="icono icono-instagram"></span></a> -->
+                <a href="https://wa.me/5493512261423" target="_blank" aria-label="Escribenos por WhatsApp"><span class="icono icono-whatsapp"></span></a>
+                <a href="mailto:modulodg.cba@gmail.com" target="_blank" aria-label="Envianos un email"><span class="icono icono-sobre"></span></a>
+                </div>
+            </section>
+
+</div><!-- /.app -->
+
+<script>
+  // ---------- Config: reemplazá el número por el real (código de país + área, sin + ni espacios) ----------
+  const WHATSAPP_NUMBER = "5493513135192"; // <-- EDITAR: poner el número real de WhatsApp
+  const WHATSAPP_MSG = "¡Hola! Confirmo que voy al cumple de Cyn el domingo 06/09 🎉";
+  const ADDRESS = "Mariano Fragueiro 1701, B, Alta Córdoba, Córdoba, Argentina";
+
+  document.getElementById('whatsappBtn').href =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MSG)}`;
+
+  document.getElementById('mapsBtn').href =
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
+
+  // ---------- Sparkles ambientales ----------
+  const field = document.getElementById('sparkleField');
+  const SPARKLE_COUNT = 46;
+  for (let i = 0; i < SPARKLE_COUNT; i++){
+    const s = document.createElement('div');
+    const isBig = Math.random() > 0.8;
+    s.className = 'sparkle' + (Math.random() > 0.55 ? ' silver' : '') + (isBig ? ' big' : '');
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.animationDelay = (Math.random() * 4) + 's';
+    s.style.animationDuration = (2.2 + Math.random() * 2.2) + 's';
+    field.appendChild(s);
+  }
+
+  // ---------- Reveal on scroll ----------
+  const revealEls = document.querySelectorAll('.card, .rsvp');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, idx) => {
+      if (entry.isIntersecting){
+        setTimeout(() => entry.target.classList.add('in-view'), idx * 90);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
