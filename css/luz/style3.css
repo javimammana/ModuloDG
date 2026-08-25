@@ -1,0 +1,277 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC:wght@400..700&family=Goudy+Bookletter+1911&family=Lavishly+Yours&family=Oldenburg&family=Playwrite+DE+Grund:wght@100..400&display=swap');
+
+
+
+:root {
+    --colorPrimario: #d8c181;
+    --colorSecundario: #1f1b18b9;
+    --colorBox: #2c2218d1;
+    --colorGris: #99979A;
+    --colorGrisOscuro: #333;
+    --fontTitle: "Lavishly Yours";
+    --fontFamily:"Goudy Bookletter 1911", serif;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: VAR(--fontFamily);
+}
+
+body {
+    margin: 0;
+    background-color: #000000a8;
+    background-image: url("../../media/luz/img/background.jpg");
+    background-blend-mode: multiply;
+    background-size: cover;
+    max-height: 100vh;
+    background-attachment: fixed;
+    font-family: 'Georgia', serif;
+}
+
+/*WELCOME PAGE*/
+
+.boxWelcome {
+    height: 90vh;
+    background-color: #000000ba;
+    border-radius: 30px;
+}
+
+
+
+/*PAGINA GENERAL*/
+.fondo {
+    background-color: #000000;
+}
+
+.line {
+    background-color: var(--colorPrimario);
+    height: 2px;
+    width: 100%;
+}
+
+.fondoGral {
+    background-image: url("../../media/luz/img/encabezado.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* canvas de fondo */
+#magicCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/*carrousel*/
+
+.imgCarrusel {
+    filter: grayscale(1);
+    transition: all 0.8s ease;
+}
+
+.imgCarrusel:hover {
+    filter: grayscale(0);
+    transition: all 0.8s ease;
+}
+
+/*DressCode*/
+
+.colorDressCode {
+    border-radius: 100%;
+    border: 2px solid var(--colorPrimario);
+    width: 50px;
+    height: 50px;
+}
+
+.dsc01 {
+    background-image: url("../../media/luz/img/DSColor01.jpg");
+    background-size: contain;
+}
+
+.dsc02 {
+    background-image: url("../../media/luz/img/DSColor02.jpg");
+    background-size: contain;
+}
+
+.dsc03 {
+    background-image: url("../../media/luz/img/DSColor03.jpg");
+    background-size: contain;
+}
+
+.dsc04 {
+    background-image: url("../../media/luz/img/DSColor04.jpg");
+    background-size: contain;
+}
+
+/*TEXTOS*/
+
+.txtPrincipal {
+    font-size: 300%;
+    font-family: var(--fontTitle);
+}
+
+.title {
+    color: var(--colorPrimario);
+    font-family: var(--fontTitle);
+    font-size: clamp(1.5rem, 10vh, 4rem);
+}
+
+.txtPrincipal {
+    font-size: 500%;
+}
+
+.texShadonw {
+    color: var(--colorPrimario);
+    text-shadow:    0px 0px 10px #000000,
+                    0px 0px 20px #000000,
+                    0px 0px 40px #000000,
+                    0px 0px 40px #000000,
+                    0px 0px 80px #000000,
+                    0px 0px 90px #000000,
+                    0px 0px 100px #000000,
+                    0px 0px 110px #000000,
+                    0px 0px 115px #000000;
+}
+
+.txtEncabezado {
+    font-size: 200%;
+}
+
+.txt{
+    color: var(--colorPrimario);
+    font-size: 120%;
+}
+
+
+/*BOX*/
+
+.box {
+    background-color: var(--colorBox);
+    background-image: url("../../media/luz/img/fondoBox.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+}
+
+.grupo {
+    margin: 5px;
+    margin-bottom: 30px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.grupo::after {
+    content: "";
+    background: var(--colorSecundario);
+    border-color: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-size: 600%;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    opacity: 1;
+}
+
+.grupo::before {
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #333, #594802, #000000, #4e452e, #000000, #333, #50432d, #333
+    );
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    background-size: 600%;
+    z-index: 1;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    filter: blur(8px);
+    animation: glowing 45s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 100%;
+    opacity: 1;
+}
+
+
+
+.grande {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    z-index: 3;
+}
+
+.chico {
+    font-size: 10px;
+    position: relative;
+    z-index: 3;
+    margin: 0;
+}
+
+.btn {
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    background-color: black;
+    border-radius: 10px;
+    text-decoration: none;
+    margin:  0 30px;
+    font-size: 135%;
+}
+
+.btn::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--colorSecundario);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+.btn::before {
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #333, #594802, #000000, #4e452e, #000000, #333, #50432d, #333
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 50s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+
+@keyframes glowing {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+}
+
+
+
+

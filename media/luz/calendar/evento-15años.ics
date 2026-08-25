@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//TuNombre//Fiesta15Años//ES
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:fiesta15anos-20260711@tusitio.com
+DTSTAMP:20250501T120000Z
+DTSTART;TZID=America/Argentina/Cordoba:20261106T213000
+DTEND;TZID=America/Argentina/Cordoba:20261108T080000
+SUMMARY:Fiesta de 15 Años
+DESCRIPTION:¡Te esperamos en la fiesta de 15 años! 🎉\nDress code: Formal elegante.\nSe recomienda vestimenta oscura.
+LOCATION:Salón de Eventos Eulalia
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
